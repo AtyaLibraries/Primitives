@@ -18,22 +18,22 @@ public abstract class ValueObject : IEquatable<ValueObject>
 
     public bool Equals(ValueObject? other)
     {
-        if (other is null || other.GetType() != this.GetType())
+        if (other is null || other.GetType() != GetType())
         {
             return false;
         }
 
-        return this.GetEqualityComponents().SequenceEqual(other.GetEqualityComponents());
+        return GetEqualityComponents().SequenceEqual(other.GetEqualityComponents());
     }
 
     public override bool Equals(object? obj)
     {
-        return obj is ValueObject other && this.Equals(other);
+        return obj is ValueObject other && Equals(other);
     }
 
     public override int GetHashCode()
     {
-        return this.GetEqualityComponents()
+        return GetEqualityComponents()
             .Aggregate(
                 seed: 0,
                 func: static (current, component) => HashCode.Combine(current, component));

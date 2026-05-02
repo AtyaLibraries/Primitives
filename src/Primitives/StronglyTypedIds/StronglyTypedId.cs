@@ -11,7 +11,7 @@ public abstract record StronglyTypedId<TValue>
     {
         ArgumentNullException.ThrowIfNull(value);
 
-        this.Value = value;
+        Value = value;
     }
 
     public TValue Value
@@ -21,6 +21,6 @@ public abstract record StronglyTypedId<TValue>
 
     public sealed override string ToString()
     {
-        return this.Value.ToString() ?? string.Empty;
+        return Value.ToString() ?? string.Empty;
     }
 }

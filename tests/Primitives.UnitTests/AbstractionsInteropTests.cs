@@ -16,7 +16,7 @@ public sealed class AbstractionsInteropTests
     {
         public ContractResult(bool isSuccess)
         {
-            this.IsSuccess = isSuccess;
+            IsSuccess = isSuccess;
         }
 
         public bool IsSuccess
