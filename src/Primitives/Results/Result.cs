@@ -3,6 +3,7 @@
 // </copyright>
 
 using Atya.Foundation.Abstractions;
+using Atya.Foundation.Guards;
 using Atya.Foundation.Primitives.Errors;
 
 namespace Atya.Foundation.Primitives.Results;
@@ -11,7 +12,7 @@ public class Result : IResult
 {
     protected internal Result(bool isSuccess, Error error)
     {
-        ArgumentNullException.ThrowIfNull(error);
+        Guard.AgainstNull(error);
 
         if (isSuccess && error != Error.None)
         {
@@ -39,11 +40,23 @@ public class Result : IResult
         get;
     }
 
-    public static Result Success() => new Result(true, Error.None);
+    public static Result Success()
+    {
+        return new Result(true, Error.None);
+    }
 
-    public static Result Failure(Error error) => new Result(false, error);
+    public static Result Failure(Error error)
+    {
+        return new Result(false, error);
+    }
 
-    public static Result<TValue> Success<TValue>(TValue value) => Result<TValue>.Success(value);
+    public static Result<TValue> Success<TValue>(TValue value)
+    {
+        return Result<TValue>.Success(value);
+    }
 
-    public static Result<TValue> Failure<TValue>(Error error) => Result<TValue>.Failure(error);
+    public static Result<TValue> Failure<TValue>(Error error)
+    {
+        return Result<TValue>.Failure(error);
+    }
 }

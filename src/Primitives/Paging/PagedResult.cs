@@ -2,6 +2,8 @@
 // Copyright (c) Atya. All rights reserved.
 // </copyright>
 
+using Atya.Foundation.Guards;
+
 namespace Atya.Foundation.Primitives.Paging;
 
 public sealed record PagedResult<T>
@@ -12,35 +14,34 @@ public sealed record PagedResult<T>
         int pageSize,
         int totalCount)
     {
-        ArgumentNullException.ThrowIfNull(items);
-        ArgumentOutOfRangeException.ThrowIfNegativeOrZero(pageNumber);
-        ArgumentOutOfRangeException.ThrowIfNegativeOrZero(pageSize);
-        ArgumentOutOfRangeException.ThrowIfNegative(totalCount);
-
-        Items = items;
-        PageNumber = pageNumber;
-        PageSize = pageSize;
-        TotalCount = totalCount;
+        Items = Guard.AgainstNull(items);
+        PageNumber = Guard.AgainstZeroOrNegative(pageNumber);
+        PageSize = Guard.AgainstZeroOrNegative(pageSize);
+        TotalCount = Guard.AgainstNegative(totalCount);
     }
 
     public IReadOnlyCollection<T> Items
     {
-        get; init;
+        get;
+        init;
     }
 
     public int PageNumber
     {
-        get; init;
+        get;
+        init;
     }
 
     public int PageSize
     {
-        get; init;
+        get;
+        init;
     }
 
     public int TotalCount
     {
-        get; init;
+        get;
+        init;
     }
 
     public int TotalPages => TotalCount <= 0
