@@ -13,8 +13,8 @@ public sealed record PagedRequest : IPagedQuery
         ArgumentOutOfRangeException.ThrowIfNegativeOrZero(pageNumber);
         ArgumentOutOfRangeException.ThrowIfNegativeOrZero(pageSize);
 
-        this.PageNumber = pageNumber;
-        this.PageSize = pageSize;
+        PageNumber = pageNumber;
+        PageSize = pageSize;
     }
 
     public int PageNumber
@@ -27,5 +27,5 @@ public sealed record PagedRequest : IPagedQuery
         get; init;
     }
 
-    public int Skip => checked((this.PageNumber - 1) * this.PageSize);
+    public int Skip => checked((PageNumber - 1) * PageSize);
 }

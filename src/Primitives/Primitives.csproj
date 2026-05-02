@@ -19,14 +19,7 @@
 
   <ItemGroup Label="Analyzers + versioning (build-only, not published)">
     <PackageReference Include="Atya.Governance.CodeQuality" PrivateAssets="all" />
-    <ProjectReference
-      Include="..\..\..\Abstractions\src\Abstractions.NuGet\Abstractions.NuGet.csproj"
-      SetTargetFramework="TargetFramework=net10.0"
-      SkipGetTargetFrameworkProperties="true"
-      Condition="Exists('..\..\..\Abstractions\src\Abstractions.NuGet\Abstractions.NuGet.csproj')" />
-    <PackageReference
-      Include="Atya.Foundation.Abstractions"
-      Condition="!Exists('..\..\..\Abstractions\src\Abstractions.NuGet\Abstractions.NuGet.csproj')" />
+    <PackageReference Include="Atya.Foundation.Abstractions" />
     <PackageReference Include="MinVer" PrivateAssets="all" Condition="'$(RepositoryHasGitDirectory)' == 'true'" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="all" Condition="'$(RepositoryHasGitDirectory)' == 'true'" />
   </ItemGroup>

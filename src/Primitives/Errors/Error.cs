@@ -19,8 +19,8 @@ public sealed record Error
             ArgumentException.ThrowIfNullOrWhiteSpace(message);
         }
 
-        this.Code = code;
-        this.Message = message;
+        Code = code;
+        Message = message;
     }
 
     public string Code

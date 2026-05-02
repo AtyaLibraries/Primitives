@@ -9,7 +9,7 @@ Low-level reusable primitives for Atya foundation packages.
 | License | MIT |
 
 > This README is the repository landing page. A minimal, consumer-facing copy
-> is packed into the NuGet package from `src/Primitives.NuGet/README.md`.
+> is packed into the NuGet package from `src/Primitives/README.md`.
 
 ## Purpose
 
@@ -28,7 +28,7 @@ Low-level reusable primitives for Atya foundation packages.
 
 ## Layout
 
-- `src/Primitives.NuGet/` for the shipped package
+- `src/Primitives/` for the shipped package
 - `tests/Primitives.UnitTests/` for behavioral coverage
 - `samples/Primitives.Samples.Console/` for runnable usage examples
 - `benchmarks/Primitives.Benchmarks/` for BenchmarkDotNet coverage
@@ -36,8 +36,10 @@ Low-level reusable primitives for Atya foundation packages.
 ## Build, Test, Pack
 
 ```bash
-./build/build.ps1 -Configuration Release
-./build/pack.ps1 -Configuration Release
+dotnet restore ./Primitives.sln
+dotnet build ./Primitives.sln --configuration Release --no-restore
+dotnet test ./tests/Primitives.UnitTests/Primitives.UnitTests.csproj --configuration Release --no-build
+dotnet pack ./src/Primitives/Primitives.csproj --configuration Release --no-build
 ```
 
 Artifacts land in `artifacts/packages/`.

@@ -11,7 +11,7 @@ public sealed class Result<TValue> : Result
     private Result(TValue? value, bool isSuccess, Error error)
         : base(isSuccess, error)
     {
-        this.Value = value;
+        Value = value;
     }
 
     public TValue? Value
