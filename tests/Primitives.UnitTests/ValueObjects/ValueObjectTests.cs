@@ -66,8 +66,8 @@ public sealed class ValueObjectTests
     {
         public Money(decimal amount, string currency)
         {
-            this.Amount = amount;
-            this.Currency = currency;
+            Amount = amount;
+            Currency = currency;
         }
 
         public decimal Amount
@@ -82,8 +82,8 @@ public sealed class ValueObjectTests
 
         protected override IEnumerable<object?> GetEqualityComponents()
         {
-            yield return this.Amount;
-            yield return this.Currency;
+            yield return Amount;
+            yield return Currency;
         }
     }
 
@@ -91,7 +91,7 @@ public sealed class ValueObjectTests
     {
         public Distance(decimal amount)
         {
-            this.Amount = amount;
+            Amount = amount;
         }
 
         public decimal Amount
@@ -101,7 +101,7 @@ public sealed class ValueObjectTests
 
         protected override IEnumerable<object?> GetEqualityComponents()
         {
-            yield return this.Amount;
+            yield return Amount;
         }
     }
 }

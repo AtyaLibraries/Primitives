@@ -21,7 +21,7 @@ env:
   NUGET_XMLDOC_MODE: skip
   SOLUTION_FILE: ./Primitives.sln
   TEST_PROJECT: ./tests/Primitives.UnitTests/Primitives.UnitTests.csproj
-  PACKAGE_PROJECT: ./src/Primitives.NuGet/Primitives.NuGet.csproj
+  PACKAGE_PROJECT: ./src/Primitives/Primitives.csproj
 
 jobs:
   build:

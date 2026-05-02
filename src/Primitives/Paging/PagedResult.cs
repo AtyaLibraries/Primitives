@@ -17,10 +17,10 @@ public sealed record PagedResult<T>
         ArgumentOutOfRangeException.ThrowIfNegativeOrZero(pageSize);
         ArgumentOutOfRangeException.ThrowIfNegative(totalCount);
 
-        this.Items = items;
-        this.PageNumber = pageNumber;
-        this.PageSize = pageSize;
-        this.TotalCount = totalCount;
+        Items = items;
+        PageNumber = pageNumber;
+        PageSize = pageSize;
+        TotalCount = totalCount;
     }
 
     public IReadOnlyCollection<T> Items
@@ -43,13 +43,13 @@ public sealed record PagedResult<T>
         get; init;
     }
 
-    public int TotalPages => this.TotalCount <= 0
+    public int TotalPages => TotalCount <= 0
         ? 0
-        : (int)Math.Ceiling(this.TotalCount / (double)this.PageSize);
+        : (int)Math.Ceiling(TotalCount / (double)PageSize);
 
-    public bool HasPreviousPage => this.PageNumber > 1;
+    public bool HasPreviousPage => PageNumber > 1;
 
-    public bool HasNextPage => this.PageNumber < this.TotalPages;
+    public bool HasNextPage => PageNumber < TotalPages;
 
     public static PagedResult<T> Empty(int pageNumber, int pageSize)
     {

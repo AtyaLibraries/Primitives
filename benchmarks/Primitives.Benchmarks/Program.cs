@@ -34,7 +34,7 @@ public class PrimitiveBenchmarks
     public Result<int> CreateFailedResult() => Result.Failure<int>(Error.Create("sample.failure", "Failure."));
 
     [Benchmark]
-    public int CalculateSkip() => this._request.Skip;
+    public int CalculateSkip() => _request.Skip;
 
     [Benchmark]
     public PagedResult<int> CreateEmptyPage() => PagedResult<int>.Empty(1, 20);
@@ -43,7 +43,7 @@ public class PrimitiveBenchmarks
     public StronglyTypedId<Guid> CreateStronglyTypedId() => new CustomerId(Guid.Parse("11111111-1111-1111-1111-111111111111"));
 
     [Benchmark]
-    public bool CompareValueObjects() => this._first == this._second;
+    public bool CompareValueObjects() => _first == _second;
 
     private sealed record CustomerId(Guid Value) : StronglyTypedId<Guid>(Value);
 
@@ -51,8 +51,8 @@ public class PrimitiveBenchmarks
     {
         public Money(decimal amount, string currency)
         {
-            this.Amount = amount;
-            this.Currency = currency;
+            Amount = amount;
+            Currency = currency;
         }
 
         public decimal Amount
@@ -67,8 +67,8 @@ public class PrimitiveBenchmarks
 
         protected override IEnumerable<object?> GetEqualityComponents()
         {
-            yield return this.Amount;
-            yield return this.Currency;
+            yield return Amount;
+            yield return Currency;
         }
     }
 }

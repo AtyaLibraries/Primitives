@@ -36,7 +36,7 @@ file sealed class Money(decimal amount, string currency) : ValueObject
 
     protected override IEnumerable<object?> GetEqualityComponents()
     {
-        yield return this.Amount;
-        yield return this.Currency;
+        yield return Amount;
+        yield return Currency;
     }
 }

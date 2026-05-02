@@ -23,8 +23,8 @@ public class Result : IResult
             throw new ArgumentException("Failed result must contain an error.", nameof(error));
         }
 
-        this.IsSuccess = isSuccess;
-        this.Error = error;
+        IsSuccess = isSuccess;
+        Error = error;
     }
 
     public bool IsSuccess
@@ -32,7 +32,7 @@ public class Result : IResult
         get;
     }
 
-    public bool IsFailure => !this.IsSuccess;
+    public bool IsFailure => !IsSuccess;
 
     public Error Error
     {

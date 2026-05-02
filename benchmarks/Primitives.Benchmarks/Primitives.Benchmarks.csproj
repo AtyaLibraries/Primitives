@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Primitives.NuGet\Primitives.NuGet.csproj">
+    <ProjectReference Include="..\..\src\Primitives\Primitives.csproj">
       <AdditionalProperties>Configuration=Release</AdditionalProperties>
     </ProjectReference>
   </ItemGroup>
