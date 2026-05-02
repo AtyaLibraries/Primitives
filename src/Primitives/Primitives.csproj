@@ -20,6 +20,7 @@
   <ItemGroup Label="Analyzers + versioning (build-only, not published)">
     <PackageReference Include="Atya.Governance.CodeQuality" PrivateAssets="all" />
     <PackageReference Include="Atya.Foundation.Abstractions" />
+    <PackageReference Include="Atya.Foundation.Guards" />
     <PackageReference Include="MinVer" PrivateAssets="all" Condition="'$(RepositoryHasGitDirectory)' == 'true'" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="all" Condition="'$(RepositoryHasGitDirectory)' == 'true'" />
   </ItemGroup>

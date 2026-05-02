@@ -2,10 +2,14 @@
 // Copyright (c) Atya. All rights reserved.
 // </copyright>
 
+using Atya.Foundation.Guards;
+
 namespace Atya.Foundation.Primitives.Errors;
 
 public sealed record Error
 {
+    public static readonly Error None = new(string.Empty, string.Empty, allowEmpty: true);
+
     public Error(string code, string message)
         : this(code, message, allowEmpty: false)
     {
@@ -15,8 +19,8 @@ public sealed record Error
     {
         if (!allowEmpty)
         {
-            ArgumentException.ThrowIfNullOrWhiteSpace(code);
-            ArgumentException.ThrowIfNullOrWhiteSpace(message);
+            Guard.AgainstNullOrWhiteSpace(code);
+            Guard.AgainstNullOrWhiteSpace(message);
         }
 
         Code = code;
@@ -25,15 +29,15 @@ public sealed record Error
 
     public string Code
     {
-        get; init;
+        get;
+        init;
     }
 
     public string Message
     {
-        get; init;
+        get;
+        init;
     }
-
-    public static readonly Error None = new Error(string.Empty, string.Empty, allowEmpty: true);
 
     public static Error Create(string code, string message)
     {
