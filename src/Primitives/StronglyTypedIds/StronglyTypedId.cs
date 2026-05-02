@@ -7,16 +7,20 @@ namespace Atya.Foundation.Primitives.StronglyTypedIds;
 public abstract record StronglyTypedId<TValue>
     where TValue : notnull
 {
-    public StronglyTypedId(TValue value)
+    protected StronglyTypedId(TValue value)
     {
-        ArgumentNullException.ThrowIfNull(value);
+        if (value is null)
+        {
+            throw new ArgumentNullException(nameof(value));
+        }
 
         Value = value;
     }
 
     public TValue Value
     {
-        get; init;
+        get;
+        init;
     }
 
     public sealed override string ToString()
