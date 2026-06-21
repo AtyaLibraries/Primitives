@@ -6,6 +6,7 @@
     <AssemblyName>Atya.Foundation.Primitives</AssemblyName>
     <RootNamespace>Atya.Foundation.Primitives</RootNamespace>
     <IsPackable>true</IsPackable>
+    <PackageValidationBaselineVersion>1.0.2</PackageValidationBaselineVersion>
     <Authors>Arsen Asulyan</Authors>
     <Copyright>Copyright (c) 2026 Arsen Asulyan</Copyright>
     <Description>Primitive types and value objects for Atya foundation packages.</Description>
