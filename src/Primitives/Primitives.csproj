@@ -5,6 +5,8 @@
     <AssemblyName>Atya.Foundation.Primitives</AssemblyName>
     <RootNamespace>Atya.Foundation.Primitives</RootNamespace>
     <IsPackable>true</IsPackable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <NoWarn>$(NoWarn);CA1000;CA1716</NoWarn>
     <PackageValidationBaselineVersion>1.0.2</PackageValidationBaselineVersion>
     <Authors>Arsen Asulyan</Authors>
     <Company>Atya</Company>
@@ -30,3 +32,4 @@
   </ItemGroup>
 
 </Project>
+
